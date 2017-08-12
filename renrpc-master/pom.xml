@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.hy.ren.rpc</groupId>
+	<artifactId>com.hy.ren.rpc.parent</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>om.hy.ren.rpc.parent</name>
+	<description></description>
+	<url></url>
+
+	<modules>
+		<!-- renrpc framework modules start -->
+		<module>com.hy.ren.rpc.common</module>
+		<module>com.hy.ren.rpc.consumer</module>
+		<module>com.hy.ren.rpc.provider</module>
+		<module>com.hy.ren.rpc.registry</module>
+		<module>com.hy.ren.rpc.registry.zk</module>
+		<module>com.hy.ren.rpc.cluster</module>
+		<!-- renrpc framework modules end -->
+
+		<!-- sample service based on renrpc framework start -->
+		<!-- Rng service -->
+		<module>com.hy.rng.api</module>
+		<module>com.hy.rng.service</module>
+		<module>com.hy.rng.client</module>
+		<!-- sample service based on renrpc framework end -->
+
+		<!-- some technic points practise -->
+		<module>com.hy.tech.points</module>
+
+	</modules>
+
+	<properties>
+		<inner.modules.version>1.0-SNAPSHOT</inner.modules.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<mavenBuildTimestamp>${maven.build.timestamp}</mavenBuildTimestamp>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+
+		<java.version>1.8</java.version>
+		<java.encoding>UTF-8</java.encoding>
+		<cglib.version>3.2.5</cglib.version>
+		<aspectj.version>1.8.10</aspectj.version>
+		<spring.version>4.3.9.RELEASE</spring.version>
+		<oracle.version>10.2.0.4</oracle.version>
+		<mysql.version>6.0.6</mysql.version>
+		<druid.version>1.1.1</druid.version>
+		<logback.version>1.2.3</logback.version>
+		<org.slf4j.version>1.7.25</org.slf4j.version>
+		<netty.version>4.1.13.Final</netty.version>
+
+		<commons-text.version>1.1</commons-text.version>
+		<commons-lang3.version>3.6</commons-lang3.version>
+		<commons-io.version>2.5</commons-io.version>
+		<commons-configuration2.version>2.1.1</commons-configuration2.version>
+		<commons-beanutils.version>1.9.3</commons-beanutils.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<commons-math3.version>3.6.1</commons-math3.version>
+		<commons-rng.version>1.0</commons-rng.version>
+		<commons-collections4.version>4.1</commons-collections4.version>
+
+		<junit.version>4.12</junit.version>
+		<commons-cli.version>1.4</commons-cli.version>
+		<mybatis.version>3.4.4</mybatis.version>
+		<mybatis-spring.version>1.3.1</mybatis-spring.version>
+		<mybatis-ehcache.version>1.0.0</mybatis-ehcache.version>
+		<org.mybatis.generator>1.3.5</org.mybatis.generator>
+		<jetty.version>9.4.6.v20170531</jetty.version>
+		<javax.servlet.version>4.0.0-b07</javax.servlet.version>
+		<jstl.version>1.2</jstl.version>
+
+		<jackson.version>1.9.13</jackson.version>
+		<json.version>20170516</json.version>
+		<json-lib.version>2.4</json-lib.version>
+		<io.protostuff.version>1.4.4</io.protostuff.version>
+
+		<zookeeper.version>3.5.3-beta</zookeeper.version>
+		<zkclient.version>0.10</zkclient.version>
+		<protobuf-java.version>3.3.0</protobuf-java.version>
+		<org.hyperic.sigar.version>1.6.5.132-6</org.hyperic.sigar.version>
+		<jboss-marshalling.version>2.0.0.CR1</jboss-marshalling.version>
+
+		<mybatis.version>3.4.4</mybatis.version>
+
+		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+		<maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+		<cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
+		<maven-surefire-plugin.version>2.20</maven-surefire-plugin.version>
+		<maven-shade-plugin.version>3.0.0</maven-shade-plugin.version>
+		<maven-assembly-plugin.version>3.0.0</maven-assembly-plugin.version>
+		<protostuff-maven-plugin.version></protostuff-maven-plugin.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- inner module start -->
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.ren.rpc.common</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.ren.rpc.consumer</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.ren.rpc.provider</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.ren.rpc.registry</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.ren.rpc.registry.zk</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.ren.rpc.cluster</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.rng.api</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.rng.service</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hy.ren.rpc</groupId>
+				<artifactId>com.hy.rng.client</artifactId>
+				<version>${inner.modules.version}</version>
+			</dependency>
+			<!-- inner module end -->
+
+
+			<!-- spring framework start -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- spring framework start -->
+
+			<!-- jdbc for db start -->
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc14</artifactId>
+				<version>${oracle.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+			<!-- jdbc for db start -->
+
+			<!-- slf4j and logback start -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${org.slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${org.slf4j.version}</version>
+			</dependency>
+			<!-- slf4j and logback end -->
+
+			<!-- apache commons start -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-text</artifactId>
+				<version>${commons-text.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${commons-fileupload.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-configuration2</artifactId>
+				<version>${commons-configuration2.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-cli</groupId>
+				<artifactId>commons-cli</artifactId>
+				<version>${commons-cli.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${commons-beanutils.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons-codec.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-math3</artifactId>
+				<version>${commons-math3.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-rng-core</artifactId>
+				<version>${commons-rng.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-rng-simple</artifactId>
+				<version>${commons-rng.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-rng-client-api</artifactId>
+				<version>${commons-rng.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>${commons-collections4.version}</version>
+			</dependency>
+			<!-- apache commons end -->
+
+			<!-- mybatis start -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-ehcache</artifactId>
+				<version>${mybatis-ehcache.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${mybatis-spring.version}</version>
+			</dependency>
+			<!-- mybatis end -->
+
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>${json.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.sf.json-lib</groupId>
+				<artifactId>json-lib</artifactId>
+				<version>${json-lib.version}</version>
+			</dependency>
+
+
+			<!-- jackson start -->
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-core-lgpl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-core-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-lgpl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<!-- jackson end -->
+
+			<!-- servlet start -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${javax.servlet.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>jstl</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${jstl.version}</version>
+			</dependency>
+			<!-- servlet end -->
+
+			<!-- io.protostuff start -->
+			<dependency>
+				<groupId>io.protostuff</groupId>
+				<artifactId>protostuff-bom</artifactId>
+				<version>${io.protostuff.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- io.protostuff end -->
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>${netty.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-common</artifactId>
+				<version>${netty.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>${cglib.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>${aspectj.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${zookeeper.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.101tec</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${zkclient.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hyperic</groupId>
+				<artifactId>sigar</artifactId>
+				<version>${org.hyperic.sigar.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.marshalling</groupId>
+				<artifactId>jboss-marshalling</artifactId>
+				<version>${jboss-marshalling.version}</version>
+			</dependency>
+
+			<!-- google protobuf start -->
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java</artifactId>
+				<version>${protobuf-java.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java-util</artifactId>
+				<version>${protobuf-java.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protoc</artifactId>
+				<version>${protobuf-java.version}</version>
+				<type>pom</type>
+			</dependency>
+			<!-- google protobuf end -->
+
+			<!-- database start -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+
+			<!-- database end -->
+		</dependencies>
+	</dependencyManagement>
+
+
+	<profiles>
+		<profile>
+			<id>development</id>
+			<properties>
+				<profiles.active>development</profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<profiles.active>test</profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>production</id>
+			<properties>
+				<profiles.active>production</profiles.active>
+			</properties>
+		</profile>
+	</profiles>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin.version}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>${org.mybatis.generator}</version>
+				<configuration>
+					<verbose>true</verbose>
+					<overwrite>true</overwrite>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<additionalparam>${javadoc.doclint.none}</additionalparam>
+					<aggregate>true</aggregate>
+					<tags>
+						<tag>
+							<name>Description</name>
+							<placement></placement>
+							<head></head>
+						</tag>
+						<tag>
+							<name>date</name>
+							<placement></placement>
+							<head></head>
+						</tag>
+						<tag>
+							<name>mbggenerated</name>
+							<placement></placement>
+							<head></head>
+						</tag>
+						<tag>
+							<name>return</name>
+							<placement></placement>
+							<head></head>
+						</tag>
+						<tag>
+							<name>throws</name>
+							<placement></placement>
+							<head></head>
+						</tag>
+						<tag>
+							<name>param</name>
+							<placement></placement>
+							<head></head>
+						</tag>
+					</tags>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<phase>install</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>${cobertura-maven-plugin.version}</version>
+				<configuration>
+					<formats>
+						<format>xml</format>
+						<format>html</format>
+					</formats>
+					<aggregate>true</aggregate>
+					<instrumentation>
+						<ignoreTrivial>true</ignoreTrivial>
+					</instrumentation>
+					<check />
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<!-- skip>true</skip -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>Redhat GA Repository</id>
+			<name>Redhat GA Repository</name>
+			<url>https://maven.repository.redhat.com/ga/</url>
+		</repository>
+	</repositories>
+</project>

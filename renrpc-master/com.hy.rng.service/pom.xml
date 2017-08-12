@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.hy.ren.rpc</groupId>
+		<artifactId>com.hy.ren.rpc.parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+
+	<artifactId>com.hy.rng.service</artifactId>
+	<packaging>jar</packaging>
+	<name>com.hy.rng.service</name>
+	<description></description>
+
+
+	<dependencies>
+		<!-- inner modules start -->
+		<dependency>
+			<groupId>com.hy.ren.rpc</groupId>
+			<artifactId>com.hy.ren.rpc.common</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hy.ren.rpc</groupId>
+			<artifactId>com.hy.ren.rpc.provider</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hy.ren.rpc</groupId>
+			<artifactId>com.hy.ren.rpc.registry.zk</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hy.ren.rpc</groupId>
+			<artifactId>com.hy.rng.api</artifactId>
+		</dependency>
+		<!-- inner modules end -->
+
+
+		<!-- Apache commons rng start -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-rng-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-rng-simple</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-rng-client-api</artifactId>
+		</dependency>
+		<!-- Apache commons rng end -->
+
+		<!-- logback start -->
+		<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+			</dependency>
+
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+			</dependency>
+		<!-- logback end -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>${maven-shade-plugin.version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>META-INF/*.SF</exclude>
+										<exclude>META-INF/*.DSA</exclude>
+										<exclude>META-INF/*.RSA</exclude>
+									</excludes>
+								</filter>
+							</filters>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.hy.rng.service.boot.RNGService</mainClass>
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>META-INF/spring.handlers</resource>
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>META-INF/spring.schemas</resource>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
