@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-option java_package = "com.hy.tech.points002.protobuf";
-option java_outer_classname="LoginUser";
-
-message Login {
-    string username = 1;
-    int32 pwd = 2; 
-}
