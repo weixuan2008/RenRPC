@@ -2,7 +2,7 @@
 
 A simple RPC framework base on Netty.
 ==========
-1. Overview
+## 1. Overview ##
 -----
 	
 RenRPC is an easy-to-use RPC framework, that base on netty.io ,zookeeper, protobuf,etc.
@@ -10,7 +10,7 @@ The server-side is built upon netty which supports asynchronous and non-blocking
 
 
 
-2. Features
+## 2. Features ##
 -----
 - Simple and small code base, low cost to learn and use.
 - With high performance[see benchmark data]
@@ -23,7 +23,7 @@ The server-side is built upon netty which supports asynchronous and non-blocking
 - Other language support(unimplemented yet).
 
 
-3. Usage:
+## 3. Usage: ##
 -----
 **1. Define an obj interface**
 	
@@ -103,7 +103,7 @@ The server-side is built upon netty which supports asynchronous and non-blocking
 All is done for your RPC call. 
 
 
-4. Performance test
+## 4. Performance test ##
 -----
  [in progress]
 
