@@ -9,8 +9,8 @@
 	<version>1.0-SNAPSHOT</version>
 
 	<name>om.hy.ren.rpc.parent</name>
-	<description></description>
-	<url></url>
+	<description/>
+	<url/>
 
 	<modules>
 		<!-- renrpc framework modules start -->
@@ -78,7 +78,7 @@
 		<json-lib.version>2.4</json-lib.version>
 		<io.protostuff.version>1.4.4</io.protostuff.version>
 
-		<zookeeper.version>3.5.3-beta</zookeeper.version>
+		<zookeeper.version>3.7.2</zookeeper.version>
 		<zkclient.version>0.10</zkclient.version>
 		<protobuf-java.version>3.3.0</protobuf-java.version>
 		<org.hyperic.sigar.version>1.6.5.132-6</org.hyperic.sigar.version>
@@ -94,7 +94,7 @@
 		<maven-surefire-plugin.version>2.20</maven-surefire-plugin.version>
 		<maven-shade-plugin.version>3.0.0</maven-shade-plugin.version>
 		<maven-assembly-plugin.version>3.0.0</maven-assembly-plugin.version>
-		<protostuff-maven-plugin.version></protostuff-maven-plugin.version>
+		<protostuff-maven-plugin.version/>
 	</properties>
 
 	<dependencyManagement>
@@ -589,33 +589,33 @@
 					<tags>
 						<tag>
 							<name>Description</name>
-							<placement></placement>
-							<head></head>
+							<placement/>
+							<head/>
 						</tag>
 						<tag>
 							<name>date</name>
-							<placement></placement>
-							<head></head>
+							<placement/>
+							<head/>
 						</tag>
 						<tag>
 							<name>mbggenerated</name>
-							<placement></placement>
-							<head></head>
+							<placement/>
+							<head/>
 						</tag>
 						<tag>
 							<name>return</name>
-							<placement></placement>
-							<head></head>
+							<placement/>
+							<head/>
 						</tag>
 						<tag>
 							<name>throws</name>
-							<placement></placement>
-							<head></head>
+							<placement/>
+							<head/>
 						</tag>
 						<tag>
 							<name>param</name>
-							<placement></placement>
-							<head></head>
+							<placement/>
+							<head/>
 						</tag>
 					</tags>
 				</configuration>
@@ -646,7 +646,7 @@
 					<instrumentation>
 						<ignoreTrivial>true</ignoreTrivial>
 					</instrumentation>
-					<check />
+					<check/>
 				</configuration>
 			</plugin>
 
